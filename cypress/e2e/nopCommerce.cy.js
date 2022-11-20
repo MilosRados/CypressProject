@@ -2,11 +2,12 @@ import {RegPage} from "./pages/reg_page"
 
 const regPage = new RegPage()
 
-
+abcde
 
     it('nopCommerce Registration', function() {
         cy.visit('https://demo.nopcommerce.com/')
-   abcd
+   
+
         regPage.clickOnReg()
         regPage.clickOnGen()
         regPage.enterFirstName()
