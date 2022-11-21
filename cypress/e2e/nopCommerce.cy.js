@@ -36,7 +36,20 @@ describe('nopCommerce testing', () => {
     
     })
          
-
+    it('LogIn', () => {
+    
+        cy.visit('https://demo.nopcommerce.com/')
+        
+    // Click on Login option
+        cy.get('.ico-login').click()
+    // Enter email in email field
+        cy.get('#Email').type('radosavljevicmilos20@gmail.com').should('have.value','radosavljevicmilos20@gmail.com')
+    // Enter Password in pass field
+        cy.get('#Password').type('mikijev').should('have.value', 'mikijev')
+    // Click on Login button
+        cy.get('form > .buttons > .button-1').should('be.visible').and('be.enabled').click()
+   
+    })
  })
 
     
