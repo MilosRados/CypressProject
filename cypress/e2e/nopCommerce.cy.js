@@ -48,7 +48,18 @@ describe('nopCommerce testing', () => {
         cy.get('#Password').type('mikijev').should('have.value', 'mikijev')
     // Click on Login button
         cy.get('form > .buttons > .button-1').should('be.visible').and('be.enabled').click()
-   
+    
+        // Click on Electronics - Find it by tag name
+    cy.get('img[title="Show products in category Electronics"]').should('be.visible').click()
+    // Click on Cell phones link
+        cy.get('img[title="Show products in category Cell phones"]').should('be.visible').click()
+    // Click on HTC One M8 Phone model
+        cy.get(':nth-child(1) > .product-item > .picture > a > img').should('be.visible').click()
+    // Assert Title
+        cy.contains('HTC One M8 Android L 5.0 Lollipop').should('have.text', 'HTC One M8 Android L 5.0 Lollipop')
+    // Type 2 products next to Add to Card
+        cy.get('#product_enteredQuantity_18').clear().type('2').should('be.enabled')
+
     })
  })
 
