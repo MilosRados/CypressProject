@@ -6,6 +6,8 @@
 
 
 
+
+
 describe('nopCommerce testing', () => {
     it('nopCommerce Registration', function() {
         cy.visit('https://demo.nopcommerce.com/')
@@ -40,7 +42,7 @@ describe('nopCommerce testing', () => {
     
     })
          
-    it.only('LogIn', () => {
+    it('LogIn', () => {
     
         cy.visit('https://demo.nopcommerce.com/')
         
@@ -52,9 +54,10 @@ describe('nopCommerce testing', () => {
         cy.get('#Password').type('mikijev').should('have.value', 'mikijev')
     // Click on Login button
         cy.get('form > .buttons > .button-1').should('be.visible').and('be.enabled').click()
-    
+   
+        
         // Click on Electronics - Find it by tag name
-    cy.get('img[title="Show products in category Electronics"]').should('be.visible').click()
+        cy.get('img[title="Show products in category Electronics"]').should('be.visible').click()
     // Click on Cell phones link
         cy.get('img[title="Show products in category Cell phones"]').should('be.visible').click()
     // Click on HTC One M8 Phone model
@@ -65,8 +68,7 @@ describe('nopCommerce testing', () => {
         cy.get('#product_enteredQuantity_18').clear().type('2').should('be.enabled')
         
         cy.get('#add-to-cart-button-18').click().should('be.enabled').and('have.text','Add to cart')
-        
-
+         
         
         // Click on dropdown menu Please select the adress you want to ship to
             cy.get('.product-estimate-shipping').click()
@@ -77,7 +79,7 @@ describe('nopCommerce testing', () => {
         // Find Zip/Postal code by tag name & type value 08001
             cy.get('input[name="ZipPostalCode"]').type('08001').should('have.value','08001')
         // Click on radio button Next Day Air
-         cy.get(':nth-child(2) > .estimate-shipping-row-item-radio > label').click()
+           cy.get(':nth-child(2) > .estimate-shipping-row-item-radio > label').click()
             
           
             // Assert Apply button
@@ -92,13 +94,18 @@ describe('nopCommerce testing', () => {
             cy.get('img[alt="Picture of HTC One M8 Android L 5.0 Lollipop"]').should('be.visible')
 
             cy.get('#checkout_attribute_1').select('2').should('have.value','2')
+
+            cy.contains('.terms-of-service','I agree with the terms of service and I adhere to them unconditionally').find('[type="checkbox"]').then(checkBox => {
+            cy.wrap(checkBox)
+            .check()
+            })
    
            
             })
             
-            }) 
+        })  
     
-         
+    
       
 
     
