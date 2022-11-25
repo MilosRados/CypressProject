@@ -2,12 +2,16 @@
 
 
 
+
+
+
+
 describe('nopCommerce testing', () => {
     it('nopCommerce Registration', function() {
         cy.visit('https://demo.nopcommerce.com/')
     
     // // Find Register button by class name
-       cy.get('.ico-register').click()
+       cy.contains('Register').click()
     
     //  Assert radio button
         cy.get('#gender-male').click().should('be.checked')
@@ -36,12 +40,12 @@ describe('nopCommerce testing', () => {
     
     })
          
-    it('LogIn', () => {
+    it.only('LogIn', () => {
     
         cy.visit('https://demo.nopcommerce.com/')
         
     // Click on Login option
-        cy.get('.ico-login').click()
+        cy.contains('Log in').click()
     // Enter email in email field
         cy.get('#Email').type('radosavljevicmilos20@gmail.com').should('have.value','radosavljevicmilos20@gmail.com')
     // Enter Password in pass field
@@ -61,6 +65,9 @@ describe('nopCommerce testing', () => {
         cy.get('#product_enteredQuantity_18').clear().type('2').should('be.enabled')
         
         cy.get('#add-to-cart-button-18').click().should('be.enabled').and('have.text','Add to cart')
+        
+
+        
         // Click on dropdown menu Please select the adress you want to ship to
             cy.get('.product-estimate-shipping').click()
         // Find Country & select Spain
@@ -70,14 +77,28 @@ describe('nopCommerce testing', () => {
         // Find Zip/Postal code by tag name & type value 08001
             cy.get('input[name="ZipPostalCode"]').type('08001').should('have.value','08001')
         // Click on radio button Next Day Air
-            // cy.get(':nth-child(2) > .estimate-shipping-row-item-radio > label').click()
-        // Assert Apply button
+         cy.get(':nth-child(2) > .estimate-shipping-row-item-radio > label').click()
+            
+          
+            // Assert Apply button
             cy.get('.active > .estimate-shipping-row-item-radio > label').click()
         // Assert text Next Day Air
             cy.contains('Next Day Air').should('be.visible')
         // Click on Apply button and Assert it
             cy.contains('Apply').should('be.enabled').and('have.text','Apply').click()
-    })
- })
+            cy.contains('Shopping cart').click()
+            cy.contains('h1','Shopping cart').should('have.text','Shopping cart')
+   
+            cy.get('img[alt="Picture of HTC One M8 Android L 5.0 Lollipop"]').should('be.visible')
+
+            cy.get('#checkout_attribute_1').select('2').should('have.value','2')
+   
+           
+            })
+            
+            }) 
+    
+         
+      
 
     
