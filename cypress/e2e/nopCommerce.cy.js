@@ -1,7 +1,9 @@
-import{RegPage} from "./pages/reg_page"
+import{ RegPage } from "./pages/reg_page"
+import { LogIn } from "./pages/log_in"
 
 
 const regPage = new RegPage()
+const logIn = new LogIn()
 
 describe('nopCommerce testing', () => {
     it('nopCommerce Registration', function() {
@@ -27,18 +29,13 @@ describe('nopCommerce testing', () => {
     it('LogIn', () => {
     
         cy.visit('https://demo.nopcommerce.com/')
+
+        logIn.clickLogInOpt()
+        logIn.enterUsername()
+        logIn.enterPass()
+        logIn.clickLogInBtn()
         
-    // Click on Login option
-        cy.contains('Log in').click()
-    // Enter email in email field
-        cy.get('#Email').type('radosavljevicmilos20@gmail.com').should('have.value','radosavljevicmilos20@gmail.com')
-    // Enter Password in pass field
-        cy.get('#Password').type('mikijev').should('have.value', 'mikijev')
-    // Click on Login button
-        cy.get('form > .buttons > .button-1').should('be.visible').and('be.enabled').click()
-   
-        
-        // Click on Electronics - Find it by tag name
+    // Click on Electronics - Find it by tag name
         cy.get('img[title="Show products in category Electronics"]').should('be.visible').click()
     // Click on Cell phones link
         cy.get('img[title="Show products in category Cell phones"]').should('be.visible').click()
