@@ -14,19 +14,11 @@ describe('nopCommerce testing', () => {
 
         cy.visit('https://demo.nopcommerce.com/')
 
-        regPage.clickRegister()
-        regPage.selectGen()
-        regPage.enterName()
-        regPage.enterLastN()
-        regPage.enterDayOfB()
-        regPage.enterMonthOfB()
-        regPage.enterYearOfB()
-        regPage.enterEmail()
-        regPage.clickChecbox()
-        regPage.enterCompanyN()
-        regPage.enterPass()
-        regPage.confirmPass()
-        regPage.clickRegisterB()
+        regPage.clickRegGen()
+        regPage.enterNameLname('Miki','Rados')
+        regPage.enterDayMonYear('3','4','2001')
+        regPage.enterEmailCheckCompany('test@test.com','My Company')
+        regPage.enterPassConfReg('$ifra12','$ifra12')
 
     })
          
@@ -34,34 +26,18 @@ describe('nopCommerce testing', () => {
     
         cy.visit('https://demo.nopcommerce.com/')
 
-        logIn.clickLogInOpt()
-        logIn.enterUsername()
-        logIn.enterPass()
-        logIn.clickLogInBtn()
+        logIn.loginUserPassLbtn('test@test.com','$ifra12')
         
 // Buy the Product
-        buyTProd.clickOnElectronics()
-        buyTProd.clickOnCellPhones()
-        buyTProd.clickOnHtcOne()
-        buyTProd.assertTitle()
-        buyTProd.addTwoProdOnCard()
-        buyTProd.clickAddToCart()
-    
-// Click on dropdown menu Please select the adress you want to ship to 
-        buyTProd.clickDropDown()
-        buyTProd.selectCountry()
-        buyTProd.selectStateP()
-        buyTProd.enterZipCode()
-        buyTProd.clickRadioNext()
-        buyTProd.clickApply()
+
+        buyTProd.chooseAproduct('2')
+
+// Click on dropdown menu Please select the adress you want to ship to
+        buyTProd.dDMenuShipping('Spain','Other','08001')
 
 // Shopping Cart page
-        shoppCart.clickShoppCart()
-        shoppCart.assertTitle()
-        shoppCart.assertProdImg()
-        shoppCart.selectGiftW()
-        shoppCart.clickChecbox()
-          
+        shoppCart.shoppCart('2')
+                 
            
     })
             
