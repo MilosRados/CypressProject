@@ -33,21 +33,5 @@ export class BuyTheProd{
 
 
     }
-    // selectCountry(){
-    //     cy.get('#CountryId').select('Spain')
-    // }
-    // selectStateP(){
-    //     cy.get('#StateProvinceId').select('Other')
-    // }
-    // enterZipCode(){
-    //     cy.get('input[name="ZipPostalCode"]').type('08001').should('have.value','08001')
-    // }
-    // clickRadioNext(){
-    //     cy.get(':nth-child(2) > .estimate-shipping-row-item-radio > label').click()
-    // }
-
-    // clickApply(){
-    //     cy.contains('Apply').should('be.enabled').and('have.text','Apply').click()
-    // }
 
 }   
