@@ -1,6 +1,6 @@
 export class BuyTheProd{
 
-
+// Buy The Product Verification
     
     clickOnElectronics(){
         cy.get('img[title="Show products in category Electronics"]').should('be.visible').click()

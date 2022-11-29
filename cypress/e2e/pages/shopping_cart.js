@@ -1,6 +1,6 @@
 export class ShoppingCart{
     
-                  
+// Shopping Cart Verification
 
      clickShoppCart(){
         cy.contains('Shopping cart').click()

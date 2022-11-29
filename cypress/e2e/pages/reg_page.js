@@ -1,6 +1,6 @@
 export class RegPage{
 
-
+// Register Page Verification
 
     clickRegister(){
         cy.contains('Register').click()

@@ -1,6 +1,6 @@
-// import cypress from "cypress";
-
 export class LogIn{
+
+// Login Verification
 
     clickLogInOpt(){
         cy.contains('Log in').click()

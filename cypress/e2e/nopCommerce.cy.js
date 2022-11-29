@@ -30,7 +30,7 @@ describe('nopCommerce testing', () => {
 
     })
          
-    it.only('LogIn', () => {
+    it('LogIn', () => {
     
         cy.visit('https://demo.nopcommerce.com/')
 
