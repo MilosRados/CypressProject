@@ -1,52 +1,32 @@
 export class RegPage{
 
-// Register Page Verification
 
-    clickRegister(){
+    clickRegGen(){
         cy.contains('Register').click()
-    }
-
-    selectGen(){
         cy.get('#gender-male').click().should('be.checked')
     }
-
-    enterName(){
-        cy.get('#FirstName').type('Miki').should('have.value', 'Miki')
+    
+    enterNameLname(name,lname){
+        cy.get('#FirstName').type(name).should('have.value', 'Miki')
+        cy.get('#LastName').type(lname).should('have.value', 'Rados')
+     }
+   
+    enterDayMonYear(day,month,year){
+        cy.get('[name="DateOfBirthDay"]').select(day).should('have.value', '3')
+        cy.get('[name="DateOfBirthMonth"]').select(month).should('have.value', '4')
+        cy.get('[name="DateOfBirthYear"]').select(year).should('have.value', '2001')
     }
-    enterLastN(){
-        cy.get('#LastName').type('Nosonja').should('have.value', 'Nosonja')
-    }
-    enterDayOfB(){
-        cy.get('[name="DateOfBirthDay"]').select('3').should('have.value', '3')
-    }
-
-    enterMonthOfB(){
-        cy.get('[name="DateOfBirthMonth"]').select('4').should('have.value', '4')
-    }
-    enterYearOfB(){
-        cy.get('[name="DateOfBirthYear"]').select('2001').should('have.value', '2001')
-    }
-
-    enterEmail(){
-        cy.get('#Email').type('radosavljevicmilos20@gmail.com').should('have.value', 'radosavljevicmilos20@gmail.com')
-    }
-    clickChecbox(){
+    
+    enterEmailCheckCompany(email,company){
+        cy.get('#Email').type(email).should('have.value', 'test@test.com')
         cy.get('#Newsletter').click().should('be.enabled')
+        cy.get('#Company').type(company).should('have.value', 'My Company')
     }
 
-    enterCompanyN(){
-        cy.get('#Company').type('My Company').should('have.value', 'My Company')
-    }
-
-    enterPass(){
-        cy.get('#Password').type('mikijev').should('have.value','mikijev')
-    }
-
-    confirmPass(){
-        cy.get('#ConfirmPassword').type('mikijev').should('have.value','mikijev')
-    }
-
-    clickRegisterB(){
+    enterPassConfReg(pass,confirmPass){
+        cy.get('#Password').type(pass).should('have.value','$ifra12')
+        cy.get('#ConfirmPassword').type(confirmPass).should('have.value','$ifra12')
         cy.get('#register-button').click()
     }
+
 }
